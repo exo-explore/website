@@ -1,7 +1,27 @@
 <!doctype html>
 <html>
   <head>
-    <title>exo</title>
+    <meta charset="UTF-8">
+    <title>Exo Labs</title>
+    <meta name="description" content="Democratize AI.">
+    <link rel="canonical" href="https://exolabs.net">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://exolabs.net">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Exo Labs">
+    <meta property="og:description" content="Democratize AI.">
+    <meta property="og:image" content="https://exolabs.net/og-preview.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@exolabs_">
+    <meta property="twitter:domain" content="exolabs.net">
+    <meta property="twitter:url" content="https://exolabs.net">
+    <meta name="twitter:title" content="Exo Labs">
+    <meta name="twitter:description" content="Democratize AI.">
+    <meta name="twitter:image" content="https://exolabs.net/og-preview.jpg">
     <style>
       body {
         line-height: 1.4;
@@ -25,37 +45,74 @@
         max-width: 42em;
         margin: 15 auto;
       }
+
+      p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
     </style>
   </head>
   <body>
     <div id="content">
       <h2>Exo Labs</h2>
       <p>
-        <i>Update: Exo Labs is hiring. Read more <a href="https://x.com/exolabs_">here</a>.</i>
+        <i>Update: Exo Labs is hiring. Read more <a href="https://x.com/exolabs_/jobs">here</a>.</i>
       </p>
       <p>
         <b>The benefits of AI should be shared by everyone.</b>
       </p>
       <p>
-        A few companies build, deploy and control the most capable AI models.
-      </p>
-      <p>
-        These companies are abusing the reasonable premise of AI safety in order to push for anti-competitive regulations like SB 1047 that secure their oligopoly.
-        These companies are deploying capital at unprecedented scale. The largest known AI training clusters being built today are $150B+.
+        A few companies are abusing the reasonable premise of AI safety in order to push for anti-competitive regulations like SB 1047 that secure their oligopoly. They are deploying capital at unprecedented scale. The largest known AI training clusters being built today are $150B+.
       </p>
       <p>
         Without immediate and decisive action, the benefits of AI will be concentrated in the hands of a few.
       </p>
       <p>
-        The mission of Exo Labs is to subvert this tragedy. To build a future where AI is owned by everyone, not just a few.
+        The mission of Exo Labs is to prevent this looming tragedy. To build a future where AI is owned by everyone, not just a few.
       </p>
       <p>
-        Exo Labs builds software that restores the balance of power to individuals using cryptography, anonymous technologies, digital signatures, and with electronic money.
-        The first step in this mission is an <a href="https://github.com/exo-explore/exo">open-source library</a> that enables anyone to run large AI models on consumer devices.
+        We are a team of AI researchers and engineers from Oxford University building software that restores the balance of power using cryptography and electronic money.
+      </p>
+      <p>
+        Join us on our mission.
       </p>
       <p>
         <a href="/contact.html">Contact</a>
       </p>
+      <p>
+        <a href="https://github.com/exo-explore/exo">Open-Source Software</a>
+      </p>
     </div>
+
+
+    <div id="form-container"><b>Stay in Touch</b><form id="stay-in-touch-form"><input type="email" name="email" placeholder="Your email" required><button type="submit">Submit</button></form></div>
+
+    <script>
+      document.getElementById('stay-in-touch-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+
+        fetch('https://formspree.io/f/mrbzdoyo', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            document.getElementById('form-container').innerHTML = '<b>Email registered. We\'ll be in touch.</b>';
+          } else {
+            throw new Error('Form submission failed');
+          }
+        }).catch(function(error) {
+          console.error('Error:', error);
+          alert('There was a problem submitting your email. Please try again.');
+        });
+      });
+    </script>
   </body>
 </html>
