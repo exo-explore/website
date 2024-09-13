@@ -25,6 +25,7 @@
     <style>
       body {
         line-height: 1.4;
+        font-family: 'Lucida Console' monospace;
         font-size: 16px;
         padding: 0 10px;
         margin: 50px auto;
@@ -57,8 +58,8 @@
       h4 {
         font-size: 1.2em;
         font-weight: normal;
-        margin-block-start: 0.3em;
-        margin-block-end: 0.3em;
+        margin-block-start: 0.63em;
+        margin-block-end: 0.63em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
       }
@@ -97,42 +98,9 @@
 
       <h4>How can you help?</h4>
 
-      <p>Join us on our mission. exo is <a href="https://x.com/exolabs_/jobs">hiring</a> for individuals who are aligned on this mission and capable of helping us get there.</p>
+      <p>If this excites you, we'd love to work with you. We are looking for cracked software engineers ($250K-$500K) and ML researchers ($300K-$600K).</p>
+
+      <p>Please email evidence of exceptional ability to <a href="mailto:jobs@exolabs.net">jobs@exolabs.net</a>.</p>
     </div>
-
-
-    <div id="form-container"><b>Stay in Touch</b><form id="stay-in-touch-form"><input type="email" name="email" placeholder="Your email" required><button type="submit">Submit</button></form></div>
-
-    <div id="social-links">
-      <a href="https://twitter.com/exolabs_">Twitter/X</a>
-      <a href="https://github.com/exo-explore">GitHub</a>
-      <a href="https://www.linkedin.com/company/exolabsai/">LinkedIn</a>
-      <a href="https://discord.gg/EUnjGpsmWw">Discord</a>
-    </div>
-
-    <script>
-      document.getElementById('stay-in-touch-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var form = this;
-        var formData = new FormData(form);
-
-        fetch('https://formspree.io/f/mrbzdoyo', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(function(response) {
-          if (response.ok) {
-            document.getElementById('form-container').innerHTML = '<b>Email registered. We\'ll be in touch.</b>';
-          } else {
-            throw new Error('Form submission failed');
-          }
-        }).catch(function(error) {
-          console.error('Error:', error);
-          alert('There was a problem submitting your email. Please try again.');
-        });
-      });
-    </script>
   </body>
 </html>
