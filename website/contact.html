@@ -45,17 +45,41 @@
       <p>
         For other enquiries, please email us at <a href="mailto:hello@exolabs.net">hello@exolabs.net</a>.
       </p>
+      <div id="email-form-container">
+        <p>
+          Or, if you'd like to receive emails about product announcements: <form id="email-form"><input type="email" name="email" placeholder="Enter your email" required><button type="submit" style="margin-left: 5px;">Submit</button></form>
+        </p>
+      </div>
       <p>
         <a href="/">Back</a>
       </p>
     </div>
-
-    <div id="social-links">
-      <a href="https://twitter.com/exolabs_">Twitter/X</a>
-      <a href="https://github.com/exo-explore">GitHub</a>
-      <a href="https://www.linkedin.com/company/exolabsai/">LinkedIn</a>
-      <a href="https://discord.gg/EUnjGpsmWw">Discord</a>
-    </div>
+  
+    <script>
+      document.getElementById('email-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+    
+        fetch('https://formspree.io/f/mrbzdoyo', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            document.getElementById('email-form-container').innerHTML = '<b>Email registered. We\'ll be in touch.</b>';
+          } else {
+            throw new Error('Form submission failed');
+          }
+        }).catch(function(error) {
+          console.error('Error:', error);
+          alert('There was a problem submitting your email. Please try again.');
+        });
+      });
+    </script>
+    
   </body>
 </html>
 
