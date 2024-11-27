@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Exo Labs - Contact</title>
+    <meta name="description" content="Democratize AI.">
+    <link rel="canonical" href="https://exolabs.net/contact.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://exolabs.net">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Exo Labs">
+    <meta property="og:description" content="Democratize AI.">
+    <meta property="og:image" content="https://exolabs.net/og-preview.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@exolabs">
+    <meta property="twitter:domain" content="exolabs.net">
+    <meta property="twitter:url" content="https://exolabs.net">
+    <meta name="twitter:title" content="Exo Labs">
+    <meta name="twitter:description" content="Democratize AI.">
+    <meta name="twitter:image" content="https://exolabs.net/og-preview.jpg">
+    <style>
+      body {
+        line-height: 1.4;
+        font-size: 16px;
+        padding: 0 10px;
+        margin: 50px auto;
+        max-width: 650px;
+      }
+
+      #content {
+        max-width: 42em;
+        margin: 15 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h2>Contact Us</h2>
+      <p>
+        For those interested in joining our company, please see <a href="/">here</a>.
+      </p>
+      <p>
+        For other enquiries, please email us at <a href="mailto:hello@exolabs.net">hello@exolabs.net</a>.
+      </p>
+      <div id="email-form-container">
+        <p>
+          Or, if you'd like to receive emails about product announcements: <form id="email-form"><input type="email" name="email" placeholder="Enter your email" required><button type="submit" style="margin-left: 5px;">Submit</button></form>
+        </p>
+      </div>
+      <p>
+        <a href="/">Back</a>
+      </p>
+    </div>
+  
+    <script>
+      document.getElementById('email-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+    
+        fetch('https://formspree.io/f/mrbzdoyo', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            document.getElementById('email-form-container').innerHTML = '<b>Email registered. We\'ll be in touch.</b>';
+          } else {
+            throw new Error('Form submission failed');
+          }
+        }).catch(function(error) {
+          console.error('Error:', error);
+          alert('There was a problem submitting your email. Please try again.');
+        });
+      });
+    </script>
+    
+  </body>
+</html>
+
